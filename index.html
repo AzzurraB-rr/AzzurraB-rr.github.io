@@ -7,22 +7,20 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
-  /* ── Variables ── */
   :root {
-    --bg:        #0a1628; /* Deep navy */
-    --bg2:       #1a2a4a; /* Medium navy */
-    --surface:   #2a3a5a; /* Light navy */
-    --border:    rgba(255,255,255,.15);
+    --bg:        #1a2a4a; /* Soft navy */
+    --bg2:       #2a3a5a; /* Medium navy */
+    --surface:   #3a4a6a; /* Light navy */
+    --border:    rgba(255,255,255,.2);
     --accent:    #8b1538; /* Wine red */
     --accent2:   #a83a5a; /* Lighter wine red */
     --accent3:   #ffffff; /* Blanc */
-    --text:      #f0f0f0; /* Off-white */
-    --muted:     #b0b0b0; /* Muted white */
+    --text:      #ffffff; /* Pure white */
+    --muted:     #c0c0c0; /* Light muted */
     --font-head: 'Syne', sans-serif;
     --font-mono: 'Space Mono', monospace;
   }
 
-  /* ── Reset & Base ── */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body {
@@ -34,12 +32,11 @@
     overflow-x: hidden;
   }
 
-  /* ── NAV ── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
     padding: 18px 48px;
-    background: rgba(10,22,40,.85);
+    background: rgba(26,42,74,.9);
     backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border);
     transition: padding .3s;
@@ -60,7 +57,7 @@
   }
   @keyframes pulse {
     0%,100% { box-shadow: 0 0 6px var(--accent2); }
-    50%      { box-shadow: 0 0 18px var(--accent2), 0 0 30px rgba(168,58,90,.3); }
+    50%      { box-shadow: 0 0 18px var(--accent2), 0 0 30px rgba(168,58,90,.4); }
   }
   .nav-links {
     display: flex; gap: 36px; list-style: none;
@@ -87,7 +84,6 @@
   }
   .nav-cta:hover { background: var(--accent2); color: var(--bg); }
 
-  /* ── HERO ── */
   #hero {
     min-height: 100vh;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -96,25 +92,20 @@
     position: relative;
     overflow: hidden;
   }
-
-  /* grid overlay */
   #hero::before {
     content: '';
     position: absolute; inset: 0;
     background-image:
-      linear-gradient(rgba(139,21,56,.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(139,21,56,.04) 1px, transparent 1px);
+      linear-gradient(rgba(139,21,56,.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(139,21,56,.03) 1px, transparent 1px);
     background-size: 48px 48px;
     mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black 40%, transparent 100%);
   }
-
-  /* beam canvas */
   #beam-canvas {
     position: absolute; inset: 0;
     width: 100%; height: 100%;
     pointer-events: none;
   }
-
   .hero-eyebrow {
     font-size: .72rem;
     letter-spacing: .25em;
@@ -185,7 +176,6 @@
   }
   .btn-ghost:hover { border-color: var(--accent2); color: var(--accent2); }
 
-  /* scroll hint */
   .scroll-hint {
     position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
     display: flex; flex-direction: column; align-items: center; gap: 6px;
@@ -204,7 +194,6 @@
     100% { transform: scaleY(0); transform-origin: bottom; }
   }
 
-  /* ── STATS BAR ── */
   #stats {
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
@@ -232,7 +221,6 @@
   .stat-num span { color: var(--accent2); }
   .stat-label { font-size: .72rem; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
 
-  /* ── SECTION SHARED ── */
   section { padding: 100px 24px; }
   .section-inner { max-width: 960px; margin: auto; }
   .section-tag {
@@ -267,7 +255,6 @@
   }
   .section-p.visible { opacity: 1; transform: none; }
 
-  /* ── ABOUT / SPLIT ── */
   #about .section-inner {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -311,10 +298,8 @@
   @keyframes orbit {
     to { transform: rotate(360deg); }
   }
-
   .about-text .section-p { max-width: 100%; }
 
-  /* ── WAITLIST ── */
   #waitlist {
     background: var(--bg2);
     border-top: 1px solid var(--border);
@@ -363,7 +348,6 @@
     font-size: .9rem;
   }
 
-  /* ── FOOTER ── */
   footer {
     padding: 56px 48px 32px;
     border-top: 1px solid var(--border);
@@ -412,11 +396,9 @@
   }
   .footer-social a:hover { color: var(--accent2); }
 
-  /* ── ANIMATIONS ── */
   @keyframes fadeUp  { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
   @keyframes fadeIn  { from { opacity: 0; } to { opacity: 1; } }
 
-  /* ── RESPONSIVE ── */
   @media (max-width: 768px) {
     nav { padding: 16px 20px; }
     .nav-links { display: none; }
@@ -429,7 +411,6 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-logo">
     <div class="dot"></div>
@@ -442,7 +423,6 @@
   <a href="#waitlist" class="nav-cta">Early Access</a>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
   <canvas id="beam-canvas"></canvas>
   <h1 class="hero-h1">The future of light<br>is <em>precision</em></h1>
@@ -457,7 +437,6 @@
   </div>
 </section>
 
-<!-- STATS -->
 <div id="stats">
   <div class="stats-inner">
     <div class="stat">
@@ -475,7 +454,6 @@
   </div>
 </div>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="section-inner">
     <div class="about-visual">
@@ -493,7 +471,6 @@
   </div>
 </section>
 
-<!-- WAITLIST -->
 <section id="waitlist">
   <div class="section-inner">
     <p class="section-tag">// Early Access Program</p>
@@ -509,7 +486,6 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-brand-block">
     <div class="footer-brand">LightTrim Photonics</div>
@@ -543,7 +519,6 @@
 </footer>
 
 <script>
-  /* ── Beam Canvas ── */
   const canvas = document.getElementById('beam-canvas');
   const ctx    = canvas.getContext('2d');
   let   beams  = [];
@@ -608,7 +583,6 @@
   window.addEventListener('resize', resize);
   requestAnimationFrame(loop);
 
-  /* ── Scroll-triggered reveals ── */
   const revealEls = document.querySelectorAll(
     '.section-tag, .section-h2, .section-p, .stat, .tech-card, .use-item, .about-visual'
   );
@@ -621,7 +595,6 @@
 
   revealEls.forEach(el => io.observe(el));
 
-  /* ── Form ── */
   function submitForm() {
     const name  = document.getElementById('name-input').value.trim();
     const email = document.getElementById('email-input').value.trim();
