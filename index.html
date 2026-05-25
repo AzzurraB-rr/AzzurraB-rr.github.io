@@ -8,15 +8,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg:        #1a2a4a; /* Soft navy */
-    --bg2:       #2a3a5a; /* Medium navy */
-    --surface:   #3a4a6a; /* Light navy */
+    --bg:        #1a2a4a;
+    --bg2:       #2a3a5a;
+    --surface:   #3a4a6a;
     --border:    rgba(255,255,255,.2);
-    --accent:    #8b1538; /* Wine red */
-    --accent2:   #a83a5a; /* Lighter wine red */
-    --accent3:   #ffffff; /* Blanc */
-    --text:      #ffffff; /* Pure white */
-    --muted:     #c0c0c0; /* Light muted */
+    --accent:    #8b1538;
+    --accent2:   #a83a5a;
+    --accent3:   #ffffff;
+    --text:      #ffffff;
+    --muted:     #c0c0c0;
     --font-head: 'Syne', sans-serif;
     --font-mono: 'Space Mono', monospace;
   }
@@ -43,8 +43,8 @@
   }
   .nav-logo {
     font-family: var(--font-head);
-    font-weight: 800;
-    font-size: 1.15rem;
+    font-weight: 700;
+    font-size: 1rem;
     letter-spacing: -.01em;
     color: var(--accent3);
     display: flex; align-items: center; gap: 10px;
@@ -117,10 +117,10 @@
   }
   .hero-h1 {
     font-family: var(--font-head);
-    font-size: clamp(2.8rem, 7vw, 6rem);
-    font-weight: 800;
-    line-height: 1.05;
-    letter-spacing: -.03em;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -.02em;
     color: var(--accent3);
     margin-bottom: 28px;
     opacity: 0;
@@ -236,11 +236,11 @@
   .section-tag.visible { opacity: 1; transform: none; }
   .section-h2 {
     font-family: var(--font-head);
-    font-size: clamp(1.8rem, 4vw, 2.8rem);
-    font-weight: 800;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 700;
     color: var(--accent3);
-    letter-spacing: -.025em;
-    line-height: 1.1;
+    letter-spacing: -.02em;
+    line-height: 1.2;
     margin-bottom: 20px;
     opacity: 0; transform: translateY(20px);
     transition: opacity .6s .1s, transform .6s .1s;
@@ -348,6 +348,28 @@
     font-size: .9rem;
   }
 
+  #acknowledgements, #recognition {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 80px 24px;
+    text-align: center;
+  }
+  #acknowledgements .section-inner, #recognition .section-inner {
+    max-width: 700px;
+    margin: auto;
+  }
+  #acknowledgements .section-tag, #recognition .section-tag {
+    margin-bottom: 20px;
+  }
+  #acknowledgements .section-h2, #recognition .section-h2 {
+    margin-bottom: 30px;
+  }
+  #acknowledgements .section-p, #recognition .section-p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--text);
+  }
+
   footer {
     padding: 56px 48px 32px;
     border-top: 1px solid var(--border);
@@ -356,8 +378,8 @@
   }
   .footer-brand {
     font-family: var(--font-head);
-    font-weight: 800;
-    font-size: 1.1rem;
+    font-weight: 700;
+    font-size: 1rem;
     color: var(--accent3);
     margin-bottom: 10px;
   }
@@ -425,7 +447,8 @@
 
 <section id="hero">
   <canvas id="beam-canvas"></canvas>
-  <h1 class="hero-h1">The future of light<br>is <em>precision</em></h1>
+  <p class="hero-eyebrow">// LightTrim Photonics</p>
+  <h1 class="hero-h1">The future of light<br>is precision</h1>
   <p class="hero-sub">Enabling next generation transceivers without heaters — photonics at scale.</p>
   <div class="hero-actions">
     <a href="#waitlist" class="btn-primary">Join Early Access →</a>
@@ -465,7 +488,7 @@
     </div>
     <div class="about-text">
       <p class="section-tag">// Who we are</p>
-      <h2 class="section-h2">Reinventing<br>light-based technology</h2>
+      <h2 class="section-h2">Reinventing light-based technology</h2>
       <p class="section-p">LightTrim Photonics is an early-stage deep-tech company building the core photonic infrastructure for tomorrow's computing, communications, and sensing industries.<br><br>We combine silicon photonics, advanced lithography, and proprietary control algorithms to deliver components that simply didn't exist before.</p>
     </div>
   </div>
@@ -474,7 +497,7 @@
 <section id="waitlist">
   <div class="section-inner">
     <p class="section-tag">// Early Access Program</p>
-    <h2 class="section-h2">Get ahead of the<br>photonic revolution</h2>
+    <h2 class="section-h2">Get ahead of the photonic revolution</h2>
     <p class="section-p">We're partnering with a small cohort of research labs, system integrators, and deep-tech companies. Register your interest and we'll be in touch.</p>
     <div class="form-row">
       <input type="text" id="name-input" placeholder="Your name" autocomplete="name">
@@ -483,6 +506,30 @@
     </div>
     <p class="form-note">No spam. No obligation. We'll only contact you about partnership opportunities.</p>
     <p id="form-success">✓ Thank you! We'll reach out within 48 hours.</p>
+  </div>
+</section>
+
+<section id="acknowledgements">
+  <div class="section-inner">
+    <p class="section-tag">// Acknowledgements</p>
+    <h2 class="section-h2">Acknowledgements</h2>
+    <p class="section-p">
+      We are grateful to our collaborators, advisors, and supporters who have contributed to our journey.
+      <br><br>
+      Special thanks to our partners in research and industry for their trust and shared vision.
+    </p>
+  </div>
+</section>
+
+<section id="recognition">
+  <div class="section-inner">
+    <p class="section-tag">// Recognition</p>
+    <h2 class="section-h2">Recognition</h2>
+    <p class="section-p">
+      This project has been supported by [Funding Agency/Institution], [Grant Name/Number], and the dedication of our team: XXXX XXXX, XXXX XXXX, XXXX XXXX.
+      <br><br>
+      We are proud to be recognized for our innovations in photonic technology and our commitment to advancing the field.
+    </p>
   </div>
 </section>
 
@@ -497,9 +544,9 @@
       <a href="#about">About</a>
       <a href="#">Careers</a>
       <h5 style="margin-top:18px">Team</h5>
-      <a href="#">Azzurra Bigioli</a>
-      <a href="#">Hamidreza Neshasteh</a>
-      <a href="#">Ivan Favero</a>
+      <a href="#">XXXX XXXX</a>
+      <a href="#">XXXX XXXX</a>
+      <a href="#">XXXX XXXX</a>
     </div>
     <div class="footer-col">
       <h5>Contact</h5>
