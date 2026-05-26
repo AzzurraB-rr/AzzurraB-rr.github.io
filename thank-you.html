@@ -1,1 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You - LigthTrim Photonics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:        #1a2a4a;
+      --bg2:       #2a3a5a;
+      --surface:   #3a4a6a;
+      --border:    rgba(255,255,255,.2);
+      --accent:    #8b1538;
+      --accent2:   #a83a5a;
+      --accent3:   #ffffff;
+      --text:      #ffffff;
+      --muted:     #c0c0c0;
+      --font-head: 'Syne', sans-serif;
+      --font-mono: 'Space Mono', monospace;
+    }
 
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-mono);
+      font-size: 15px;
+      line-height: 1.7;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+    }
+
+    .thank-you-content {
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .thank-you-icon {
+      font-size: 4rem;
+      margin-bottom: 24px;
+      color: var(--accent2);
+    }
+
+    .thank-you-h1 {
+      font-family: var(--font-head);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--accent3);
+      margin-bottom: 16px;
+    }
+
+    .thank-you-p {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 32px;
+    }
+
+    .btn-primary {
+      padding: 14px 32px;
+      background: var(--accent2);
+      color: var(--accent3);
+      border-radius: 4px;
+      text-decoration: none;
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: .9rem;
+      letter-spacing: .04em;
+      transition: box-shadow .2s, transform .2s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 0 30px rgba(139,21,56,.45);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <div class="thank-you-content">
+    <div class="thank-you-icon">✓</div>
+    <h1 class="thank-you-h1">Thank You!</h1>
+    <p class="thank-you-p">
+      We appreciate your interest in LigthTrim Photonics. We'll reach out within 48 hours.
+    </p>
+    <a href="index.html" class="btn-primary">Back to Home →</a>
+  </div>
+</body>
+</html>
