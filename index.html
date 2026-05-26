@@ -261,16 +261,9 @@
     border-bottom: 1px solid var(--border);
     text-align: center;
   }
-  #team .section-tag {
-    margin-bottom: 16px;
-  }
-  #team .section-h2 {
-    margin-bottom: 20px;
-  }
-  #team .section-p {
-    max-width: 600px;
-    margin: 0 auto 30px;
-  }
+  #team .section-tag { margin-bottom: 16px; }
+  #team .section-h2 { margin-bottom: 20px; }
+  #team .section-p { max-width: 600px; margin: 0 auto 30px; }
 
   #about .section-inner {
     display: grid;
@@ -312,9 +305,7 @@
     transform-origin: -136px 0;
     animation: orbit 4s linear infinite;
   }
-  @keyframes orbit {
-    to { transform: rotate(360deg); }
-  }
+  @keyframes orbit { to { transform: rotate(360deg); } }
   .about-text .section-p { max-width: 100%; }
 
   #waitlist {
@@ -348,14 +339,8 @@
     transition: border-color .2s;
     margin-bottom: 12px;
   }
-
-  .form-message:focus {
-    border-color: var(--accent2);
-  }
-
-  .form-message::placeholder {
-    color: var(--muted);
-  }
+  .form-message:focus { border-color: var(--accent2); }
+  .form-message::placeholder { color: var(--muted); }
 
   .form-row input {
     flex: 1 1 240px;
@@ -387,6 +372,36 @@
     box-shadow: 0 0 24px rgba(139,21,56,.4);
     transform: translateY(-1px);
   }
+  .form-row button:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  #form-success {
+    display: none;
+    margin-top: 24px;
+    padding: 18px 24px;
+    border: 1px solid var(--accent2);
+    border-radius: 4px;
+    color: var(--accent3);
+    background: var(--surface);
+    font-size: .88rem;
+    text-align: left;
+    animation: fadeUp .5s forwards;
+  }
+  #form-success .success-icon {
+    display: inline-block;
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    background: var(--accent2);
+    color: white;
+    font-size: .7rem;
+    text-align: center;
+    line-height: 20px;
+    margin-right: 8px;
+  }
+
   .form-note { margin-top: 14px; font-size: .72rem; color: var(--muted); }
 
   #acknowledgements, #recognition {
@@ -395,16 +410,9 @@
     padding: 80px 24px;
     text-align: center;
   }
-  #acknowledgements .section-inner, #recognition .section-inner {
-    max-width: 700px;
-    margin: auto;
-  }
-  #acknowledgements .section-tag, #recognition .section-tag {
-    margin-bottom: 20px;
-  }
-  #acknowledgements .section-h2, #recognition .section-h2 {
-    margin-bottom: 30px;
-  }
+  #acknowledgements .section-inner, #recognition .section-inner { max-width: 700px; margin: auto; }
+  #acknowledgements .section-tag, #recognition .section-tag { margin-bottom: 20px; }
+  #acknowledgements .section-h2, #recognition .section-h2 { margin-bottom: 30px; }
   #acknowledgements .section-p, #recognition .section-p {
     font-size: 1rem;
     line-height: 1.8;
@@ -556,10 +564,9 @@
     <h2 class="section-h2">Get ahead of the photonic revolution</h2>
     <p class="section-p">Sign up for our newsletter to stay updated on our progress and opportunities for collaboration.</p>
 
-    <form id="contact-form" action="https://formsubmit.co/bigioliA@protonmail.com" method="POST">
+    <form id="contact-form" action="https://formsubmit.co/ajax/bigioliA@protonmail.com" method="POST">
       <input type="hidden" name="_subject" value="LigthTrim Photonics - New Contact">
       <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="thank-you.html">
       <input type="hidden" name="_replyto" value="bigioliA@protonmail.com">
       <input type="hidden" name="_autoresponse" value="Thank you for your interest in LigthTrim Photonics! We'll reach out within 48 hours.">
 
@@ -567,12 +574,18 @@
         <input type="text" id="name-input" name="name" placeholder="Your name" autocomplete="name" required>
         <input type="email" id="email-input" name="email" placeholder="Work email" autocomplete="email" required>
       </div>
+
+      <p class="section-p" style="margin-top: 24px; margin-bottom: 12px; font-size: 0.9rem;">Have a specific question or message? Let us know below.</p>
+      <textarea id="message-input" name="message" class="form-message" placeholder="Your message (optional)"></textarea>
+
       <div class="form-row">
-        <button type="submit">Sign Up for Newsletter</button>
+        <button type="submit" id="submit-btn">Sign Up for Newsletter</button>
       </div>
 
-      <p class="section-p" style="margin-top: 30px; font-size: 0.9rem;">Have a specific question or message? Let us know below.</p>
-      <textarea id="message-input" name="message" class="form-message" placeholder="Your message (optional)"></textarea>
+      <div id="form-success">
+        <span class="success-icon">✓</span>
+        <strong>Thank you!</strong> We've received your message and will be in touch within 48 hours.
+      </div>
     </form>
 
     <p class="form-note">No spam. No obligation. We'll only contact you about updates and partnership opportunities.</p>
@@ -632,6 +645,7 @@
 </footer>
 
 <script>
+  // ── Beam canvas animation ──────────────────────────────────────────────────
   const canvas = document.getElementById('beam-canvas');
   const ctx    = canvas.getContext('2d');
   let   beams  = [];
@@ -696,6 +710,7 @@
   window.addEventListener('resize', resize);
   requestAnimationFrame(loop);
 
+  // ── Scroll reveal ──────────────────────────────────────────────────────────
   const revealEls = document.querySelectorAll(
     '.section-tag, .section-h2, .section-p, .stat, .tech-card, .use-item, .about-visual'
   );
@@ -708,14 +723,40 @@
 
   revealEls.forEach(el => io.observe(el));
 
-  // Form validation only (submission handled by FormSubmit)
-  document.getElementById('contact-form').addEventListener('submit', function(e) {
-    const name = document.getElementById('name-input').value.trim();
+  // ── Contact form — AJAX submit, inline thank-you ───────────────────────────
+  document.getElementById('contact-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const name  = document.getElementById('name-input').value.trim();
     const email = document.getElementById('email-input').value.trim();
 
     if (!name || !email) {
-      e.preventDefault();
-      alert("Please fill in your name and email.");
+      alert('Please fill in your name and email.');
+      return;
+    }
+
+    const btn = document.getElementById('submit-btn');
+    btn.textContent = 'Sending…';
+    btn.disabled    = true;
+
+    try {
+      const res = await fetch(this.action, {
+        method:  'POST',
+        body:    new FormData(this),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        document.getElementById('form-success').style.display = 'block';
+        this.reset();
+      } else {
+        throw new Error('Server error');
+      }
+    } catch {
+      alert('Something went wrong. Please try again or email us directly.');
+    } finally {
+      btn.textContent = 'Sign Up for Newsletter';
+      btn.disabled    = false;
     }
   });
 </script>
