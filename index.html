@@ -497,8 +497,8 @@
 
 <section id="hero">
   <canvas id="beam-canvas"></canvas>
-  <p class="hero-eyebrow">// Lightrim Photonics</p>
-  <h1 class="hero-h1">Light shaping light</h1>
+  <p class="hero-eyebrow">// LigthTrim Photonics</p>
+  <h1 class="hero-h1">The future of light<br>is precision</h1>
   <p class="hero-sub">Enabling next generation transceivers without heaters — photonics at scale.</p>
   <div class="hero-actions">
     <a href="#waitlist" class="btn-primary">Join Early Access →</a>
@@ -562,24 +562,25 @@
     <h2 class="section-h2">Get ahead of the photonic revolution</h2>
     <p class="section-p">Sign up for our newsletter to stay updated on our progress and opportunities for collaboration.</p>
 
-    <!-- Updated FormSubmit Form -->
+    <!-- Updated FormSubmit Form with Explicit Field Mapping -->
     <form id="contact-form" action="https://formsubmit.co/bigioliA@protonmail.com" method="POST" enctype="multipart/form-data">
       <input type="hidden" name="_subject" value="LigthTrim Photonics - New Contact">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_next" value="https://lighttrim.io/thank-you.html">
       <input type="hidden" name="_replyto" value="bigioliA@protonmail.com">
       <input type="hidden" name="_autoresponse" value="Thank you for your interest in LigthTrim Photonics! We'll reach out within 48 hours.">
+      <input type="hidden" name="_template" value="box">
 
       <div class="form-row">
-        <input type="text" id="name-input" name="name" placeholder="Your name" autocomplete="name" required>
-        <input type="email" id="email-input" name="email" placeholder="Work email" autocomplete="email" required>
+        <input type="text" id="name-input" name="Name" placeholder="Your name" autocomplete="name" required>
+        <input type="email" id="email-input" name="Email" placeholder="Work email" autocomplete="email" required>
       </div>
       <div class="form-row">
         <button type="submit">Sign Up for Newsletter</button>
       </div>
 
       <p class="section-p" style="margin-top: 30px; font-size: 0.9rem;">Have a specific question or message? Let us know below.</p>
-      <textarea id="message-input" name="message" class="form-message" placeholder="Your message (optional)"></textarea>
+      <textarea id="message-input" name="Message" class="form-message" placeholder="Your message (optional)"></textarea>
     </form>
 
     <p class="form-note">No spam. No obligation. We'll only contact you about updates and partnership opportunities.</p>
