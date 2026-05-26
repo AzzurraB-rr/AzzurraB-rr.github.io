@@ -564,18 +564,23 @@
     <h2 class="section-h2">Get ahead of the photonic revolution</h2>
     <p class="section-p">Sign up for our newsletter to stay updated on our progress and opportunities for collaboration.</p>
 
-    <!-- Newsletter Signup Form -->
-    <div class="form-row">
-      <input type="text" id="name-input" placeholder="Your name" autocomplete="name">
-      <input type="email" id="email-input" placeholder="Work email" autocomplete="email">
-    </div>
-    <div class="form-row">
-      <button onclick="submitForm()">Sign Up for Newsletter</button>
-    </div>
+    <!-- FormSubmit Form -->
+    <form id="contact-form" action="https://formsubmit.co/azzurra.bigioli@u-pariscite.com" method="POST">
+      <input type="hidden" name="_subject" value="LigthTrim Photonics - New Contact">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="">
 
-    <!-- Optional Message -->
-    <p class="section-p" style="margin-top: 30px; font-size: 0.9rem;">Have a specific question or message? Let us know below.</p>
-    <textarea id="message-input" class="form-message" placeholder="Your message (optional)"></textarea>
+      <div class="form-row">
+        <input type="text" id="name-input" name="name" placeholder="Your name" autocomplete="name" required>
+        <input type="email" id="email-input" name="email" placeholder="Work email" autocomplete="email" required>
+      </div>
+      <div class="form-row">
+        <button type="submit">Sign Up for Newsletter</button>
+      </div>
+
+      <p class="section-p" style="margin-top: 30px; font-size: 0.9rem;">Have a specific question or message? Let us know below.</p>
+      <textarea id="message-input" name="message" class="form-message" placeholder="Your message (optional)"></textarea>
+    </form>
 
     <p class="form-note">No spam. No obligation. We'll only contact you about updates and partnership opportunities.</p>
     <p id="form-success">✓ Thank you! We'll reach out within 48 hours.</p>
@@ -711,31 +716,17 @@
 
   revealEls.forEach(el => io.observe(el));
 
-  function submitForm() {
+  // Form validation
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
     const name = document.getElementById('name-input').value.trim();
     const email = document.getElementById('email-input').value.trim();
-    const message = document.getElementById('message-input').value.trim();
 
     if (!name || !email) {
+      e.preventDefault();
       alert("Please fill in your name and email.");
       return;
     }
-
-    // Log form data (for testing)
-    console.log({
-      name: name,
-      email: email,
-      message: message
-    });
-
-    // Show success message
-    document.getElementById('form-success').style.display = 'block';
-
-    // Reset form
-    document.getElementById('name-input').value = '';
-    document.getElementById('email-input').value = '';
-    document.getElementById('message-input').value = '';
-  }
+  });
 </script>
 </body>
 </html>
