@@ -388,12 +388,6 @@
     transform: translateY(-1px);
   }
   .form-note { margin-top: 14px; font-size: .72rem; color: var(--muted); }
-  #form-success {
-    display: none;
-    margin-top: 18px;
-    color: var(--accent2);
-    font-size: .9rem;
-  }
 
   #acknowledgements, #recognition {
     background: var(--surface);
@@ -562,29 +556,26 @@
     <h2 class="section-h2">Get ahead of the photonic revolution</h2>
     <p class="section-p">Sign up for our newsletter to stay updated on our progress and opportunities for collaboration.</p>
 
-    <!-- Updated FormSubmit Form with Explicit Field Mapping -->
-    <form id="contact-form" action="https://formsubmit.co/bigioliA@protonmail.com" method="POST" enctype="multipart/form-data">
+    <form id="contact-form" action="https://formsubmit.co/bigioliA@protonmail.com" method="POST">
       <input type="hidden" name="_subject" value="LigthTrim Photonics - New Contact">
       <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://lighttrim.io/thank-you.html">
+      <input type="hidden" name="_next" value="thank-you.html">
       <input type="hidden" name="_replyto" value="bigioliA@protonmail.com">
       <input type="hidden" name="_autoresponse" value="Thank you for your interest in LigthTrim Photonics! We'll reach out within 48 hours.">
-      <input type="hidden" name="_template" value="box">
 
       <div class="form-row">
-        <input type="text" id="name-input" name="Name" placeholder="Your name" autocomplete="name" required>
-        <input type="email" id="email-input" name="Email" placeholder="Work email" autocomplete="email" required>
+        <input type="text" id="name-input" name="name" placeholder="Your name" autocomplete="name" required>
+        <input type="email" id="email-input" name="email" placeholder="Work email" autocomplete="email" required>
       </div>
       <div class="form-row">
         <button type="submit">Sign Up for Newsletter</button>
       </div>
 
       <p class="section-p" style="margin-top: 30px; font-size: 0.9rem;">Have a specific question or message? Let us know below.</p>
-      <textarea id="message-input" name="Message" class="form-message" placeholder="Your message (optional)"></textarea>
+      <textarea id="message-input" name="message" class="form-message" placeholder="Your message (optional)"></textarea>
     </form>
 
     <p class="form-note">No spam. No obligation. We'll only contact you about updates and partnership opportunities.</p>
-    <p id="form-success">✓ Thank you! We'll reach out within 48 hours.</p>
   </div>
 </section>
 
@@ -717,7 +708,7 @@
 
   revealEls.forEach(el => io.observe(el));
 
-  // Form validation and submission feedback
+  // Form validation only (submission handled by FormSubmit)
   document.getElementById('contact-form').addEventListener('submit', function(e) {
     const name = document.getElementById('name-input').value.trim();
     const email = document.getElementById('email-input').value.trim();
@@ -725,12 +716,7 @@
     if (!name || !email) {
       e.preventDefault();
       alert("Please fill in your name and email.");
-      return;
     }
-
-    // Show success message
-    document.getElementById('form-success').style.display = 'block';
-    this.reset();
   });
 </script>
 </body>
