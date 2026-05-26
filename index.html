@@ -255,7 +255,6 @@
   }
   .section-p.visible { opacity: 1; transform: none; }
 
-  /* Team Section Styling */
   #team {
     background: var(--surface);
     border-top: 1px solid var(--border);
@@ -326,7 +325,6 @@
   #waitlist .section-inner { max-width: 660px; text-align: center; }
   #waitlist .section-p { max-width: 100%; margin: 0 auto 40px; }
 
-  /* Updated Form Styling */
   .form-row {
     display: flex;
     gap: 12px;
@@ -565,10 +563,10 @@
     <p class="section-p">Sign up for our newsletter to stay updated on our progress and opportunities for collaboration.</p>
 
     <!-- FormSubmit Form -->
-    <form id="contact-form" action="https://formsubmit.co/azzurra.bigioli@u-pariscite.com" method="POST">
+    <form id="contact-form" action="https://formsubmit.co/bigioliA@protonmail.com" method="POST">
       <input type="hidden" name="_subject" value="LigthTrim Photonics - New Contact">
       <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="">
+      <input type="hidden" name="_next" value="https://lighttrim.io/thank-you.html">
 
       <div class="form-row">
         <input type="text" id="name-input" name="name" placeholder="Your name" autocomplete="name" required>
@@ -716,7 +714,7 @@
 
   revealEls.forEach(el => io.observe(el));
 
-  // Form validation
+  // Form validation and submission feedback
   document.getElementById('contact-form').addEventListener('submit', function(e) {
     const name = document.getElementById('name-input').value.trim();
     const email = document.getElementById('email-input').value.trim();
@@ -726,6 +724,10 @@
       alert("Please fill in your name and email.");
       return;
     }
+
+    // Show success message
+    document.getElementById('form-success').style.display = 'block';
+    this.reset();
   });
 </script>
 </body>
