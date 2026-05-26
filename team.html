@@ -206,6 +206,12 @@
     font-size: 0.9rem;
   }
 
+  /* Highlight CEO & Co-founder in the middle */
+  .team-grid .team-card:nth-child(2) {
+    border-color: var(--accent2);
+    box-shadow: 0 0 15px rgba(168, 58, 90, 0.3);
+  }
+
   footer {
     padding: 56px 48px 32px;
     border-top: 1px solid var(--border);
@@ -332,23 +338,23 @@
 
 <section id="team-members">
   <div class="team-grid">
-    <!-- CEO Card -->
-    <div class="team-card">
-      <div class="team-avatar">CEO</div>
-      <h3>Name Surname</h3>
-      <p>Chief Executive Officer</p>
-    </div>
     <!-- CTO Card -->
     <div class="team-card">
       <div class="team-avatar">CTO</div>
       <h3>Name Surname</h3>
-      <p>Chief Technology Officer</p>
+      <p>Chief Technology Officer & Co-founder</p>
+    </div>
+    <!-- CEO Card (Middle) -->
+    <div class="team-card">
+      <div class="team-avatar">CEO</div>
+      <h3>Name Surname</h3>
+      <p>Chief Executive Officer & Co-founder</p>
     </div>
     <!-- CSO Card -->
     <div class="team-card">
       <div class="team-avatar">CSO</div>
       <h3>Name Surname</h3>
-      <p>Chief Science Officer</p>
+      <p>Chief Science Officer & Co-founder</p>
     </div>
   </div>
 </section>
